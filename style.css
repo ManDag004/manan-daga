@@ -14,18 +14,70 @@ header {
   padding: 10px 0;
 }
 
-nav ul {
-  list-style: none;
+#menu {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
-nav li {
-  display: inline;
-  margin-right: 20px;
+#menu-item-container {
+  margin-right: 10vw;
+  text-align: right;
+  z-index: 1;
 }
 
-nav a {
-  text-decoration: none;
+.menu-item {
   color: #fff;
+  text-decoration: none;
+  padding: 1.5vw 0;
+  display: block;
+  font-size: 7vh;
+  transition: all 0.4s ease;
+}
+
+#menu-item-container:hover > .menu-item {
+  color: #666;
+}
+
+#menu-item-container:hover > .menu-item:hover {
+  color: #fff;
+  font-size: 12vh;
+}
+
+#menu-background {
+  height: 100vh;
+  width: 100vw;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.12) 10%,
+    transparent 15%
+  );
+  background-position: 100% 0%;
+  background-size: 10vh 10vh;
+  position: absolute;
+  z-index: 0;
+  transition: all 0.6s ease;
+}
+
+#menu-item-container:hover ~ #menu-background {
+  background-size: 9vh 9vh;
+  opacity: 0.3;
+}
+
+#menu[data-active-index="0"] > #menu-background {
+  background-position: 100% -25%;
+}
+
+#menu[data-active-index="1"] > #menu-background {
+  background-position: 100% -50%;
+}
+
+#menu[data-active-index="2"] > #menu-background {
+  background-position: 100% -75%;
+}
+
+#menu[data-active-index="3"] > #menu-background {
+  background-position: 100% -100%;
 }
 
 #profile {
@@ -63,3 +115,4 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
+
