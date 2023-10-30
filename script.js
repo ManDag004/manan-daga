@@ -3,14 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = document.getElementsByTagName('section');
   const menu = document.getElementById('menu');
   let clicked = false;
-  
+
   function menuClick() {
     clicked = !clicked;
-    
-    console.log("Display of menu:", menu.style.display);
-    for (let i = 0; i < sections.length; i++) {
-      console.log("display of section:", sections[i].style.display);
-    }
     
     if (clicked === true) {
       console.log('display');
@@ -19,12 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.style.display = 'none';
     }
     
-    for (let i = 0; i < sections.length; i++) {
-      if (clicked === false) {
-        sections[i].style.display = 'block';
-      } else {
-        sections[i].style.display = 'none';
-      }
+    if (clicked === false) {
+      sections[0].style.display = 'block';
+    } else {
+      sections[0].style.display = 'none';
     }
   }
   
