@@ -3,8 +3,13 @@
   padding: 0;
 }
 
+body {
+  background-color: #333;
+}
+
 h1, h2 {
   text-align: center;
+  color: #fff;
 }
 
 header {
@@ -14,9 +19,18 @@ header {
   padding: 10px 0;
 }
 
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 3; /* Ensure the icon is on top of other content */
+}
+
 #menu {
   height: 100vh;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: end;
 }
@@ -49,8 +63,8 @@ header {
   height: 100vh;
   width: 100vw;
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.12) 10%,
-    transparent 15%
+  rgba(255, 255, 255, 0.12) 10%,
+  transparent 15%
   );
   background-position: 100% 0%;
   background-size: 10vh 10vh;
@@ -81,15 +95,26 @@ header {
 }
 
 #profile {
-  background-image: url('assets/profile.jpg');
-  background-size: cover;
   text-align: center;
   color: #fff;
   padding: 100px 0;
 }
 
+#profile img {
+  margin-top: 5vh;
+  border-radius: 50%;
+  width: 20vh;
+  height: 20vh;
+}
+
+#profile span {
+  display: block;
+  margin: 3vh 4vw;
+  font-size: 2vh;
+}
+
 section {
-  padding: 100px;
+  height: 100vh;
 }
 
 .project-grid {
@@ -114,5 +139,12 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px 0;
+}
+
+iframe {
+  display: block;
+  width: 65vh;
+  height: 85vh;
+  margin: 5vh auto;
 }
 
