@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
   <div id="menuIcon" class="menu-icon">
   <i class="fas fa-bars"></i>
   </div>
+
+  <div class="dark-mode-icon">
+  <i class="fas fa-sun"></i>
+  </div>
   
   <div id="menu">
   <div id="menu-item-container">
@@ -26,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const menuItemsContainer = document.getElementById('menu-item-container');
   const menuItems = document.getElementsByClassName('menu-item');
   const menuBackground = document.getElementById('menu-background');
+  const darkModeIcon = document.querySelector('.dark-mode-icon');
   let clicked = false;
   
   function menuClick() {
@@ -35,20 +40,22 @@ document.addEventListener('DOMContentLoaded', function() {
       var timeline1 = gsap.timeline();
       
       timeline1
-      .to(sections[0], {duration: 0.25, opacity: 0})
+      .to(sections[0], {duration: 0.2, opacity: 0})
       .to(sections[0], {duration: 0, display: 'none'})
       .to(menu, {duration: 0, display: 'flex'})
-      .to(menu, {duration: 0.25, opacity: 1})
+      .to(menu, {duration: 0.2, opacity: 1})
       .set("#menu-background", {clearProps: "all"})
-      .from("#menu-background", {duration: 0.25, opacity: 0})
+      .from("#menu-background", {duration: 0.25, opacity: 0, backgroundSize: "1vh 1vh"})
       .from(".menu-item", {duration: 0.15, opacity: 0, y: -70, stagger: 0.1});
     } else {
       var timeline2 = gsap.timeline();
       
       timeline2
       .to(".menu-item", {duration: 0.15, opacity: 0, y: -70, stagger: 0.1})
-      .to(menu, {duration: 0.25, opacity: 0})
+      .to("#menu-background", {duration: 0.25, opacity: 0, backgroundSize: "1vh 1vh"})
+      .to(menu, {duration: 0, opacity: 0})
       .to(menu, {duration: 0, display: 'none'})
+      .set("#menu-background", {clearProps: "all"})
       .to(sections[0], {duration: 0, display: 'block'})
       .to(sections[0], {duration: 0.25, opacity: 1})
       .set(".menu-item", {clearProps: "all"});
@@ -56,6 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   menuIcon.addEventListener('click', menuClick);
+
+  darkModeIcon.addEventListener('click', () => {
+    if (localStorage.getItem('darkMode') === 'true') {
+      localStorage.setItem('darkMode', 'false');
+      darkModeIcon.innerHTML = '<i class="fas fa-sun"></i>';
+      // change css variables
+      document.documentElement.style.setProperty('--background-color', '#333');
+      document.documentElement.style.setProperty('--text-color', '#fff');
+      document.documentElement.style.setProperty('--color-num', 255);
+      
+    } else {
+      localStorage.setItem('darkMode', 'true');
+      darkModeIcon.innerHTML = '<i class="fas fa-moon"></i>';
+      document.documentElement.style.setProperty('--background-color', '#fff');
+      document.documentElement.style.setProperty('--text-color', '#333');
+      document.documentElement.style.setProperty('--color-num', 0);
+    }
+  })
 
 
   menuItemsContainer.addEventListener('mouseover', () => {
@@ -72,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.dataset.activeIndex = index;
 
       gsap.to(menuBackground, {
-        backgroundPosition: `100% -${25 * index}%`,
+        backgroundPosition: `100% -${25 * (index+1)}%`,
         duration: 0.5, // Adjust the duration as needed
         ease: 'ease',
       });
