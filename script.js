@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const sections = document.getElementsByTagName('section');
   
   menuTemplate.innerHTML = `
-  <div id="menuIcon" class="menu-icon">
-  <i class="fas fa-bars"></i>
+  <div id="nav-icon3">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
   </div>
   
   <div class="dark-mode-icon">
@@ -22,10 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
   <div id="menu-background"></div>
   </div>
   `;
+
+  
   
   body.insertBefore(menuTemplate, body.firstChild);
   
-  const menuIcon = document.getElementById('menuIcon');
+  const menuIcon = document.getElementById('nav-icon3');
   const menu = document.getElementById('menu');
   const menuItemsContainer = document.getElementById('menu-item-container');
   const menuItems = document.getElementsByClassName('menu-item');
@@ -36,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function menuClick() {
     clicked = !clicked;
+    menuIcon.classList.toggle('open');
     
     if (clicked === true) {
       var timeline1 = gsap.timeline();
@@ -62,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .set(".menu-item", {clearProps: "all"});
     }
   }
-
+  
   function setDarkMode() {
     if (localStorage.getItem('darkMode') === 'true') {
       gsap.to(document.documentElement, {
