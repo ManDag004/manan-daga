@@ -266,8 +266,7 @@ function toggleDarkMode() {
 
   localStorage.setItem('darkMode', newMode.toString());
   setColors(newMode);
-  darkModeIcon.innerHTML = newMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-  animateDarkModeIcon(darkModeIcon, newMode);
+  animateDarkModeIcon(darkModeIcon, newMode, darkModeIcon);
 }
 
 function setColors(isDarkMode) {
@@ -289,7 +288,7 @@ function setColors(isDarkMode) {
   });
 }
 
-function animateDarkModeIcon(icon, isDarkMode) {
+function animateDarkModeIcon(icon, isDarkMode, darkModeIcon) {
   const rotation = isDarkMode ? -180 : 180;
   gsap.to(icon, {
     rotate: rotation,
@@ -297,6 +296,7 @@ function animateDarkModeIcon(icon, isDarkMode) {
     opacity: 0.5,
     duration: 0.5,
     onComplete: function () {
+      darkModeIcon.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
       gsap.fromTo(icon, { scale: 0, opacity: 0, rotate: -rotation }, { scale: 1, opacity: 1, duration: 0.5, rotate: 0 });
     }
   });

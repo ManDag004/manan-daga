@@ -184,7 +184,6 @@ header {
 #profile {
   text-align: center;
   color: var(--text-color);
-  padding: 100px 0;
 }
 
 #profile img {
@@ -196,8 +195,9 @@ header {
 
 #profile span {
   display: block;
-  margin: 3vh 4vw;
+  margin: 3vh 10vw;
   font-size: 2vh;
+  text-align: justify;
 }
 
 section {
