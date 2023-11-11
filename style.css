@@ -265,6 +265,7 @@ section {
   transform: rotateY(180deg);
   position: relative;
   background: linear-gradient(to top, rgba(0,0,0,0.5) 20%, black 80%), var(--card-image-url) center/cover no-repeat;
+  color: #fff;
 }
 
 /* .project-card-back::after {
