@@ -250,6 +250,7 @@ section {
 .project-card-front {
   align-items: flex-end;
   justify-content: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 45%, black 90%), var(--card-image-url) center/cover no-repeat;
 }
 
 .project-card-front h3 {
@@ -262,6 +263,25 @@ section {
   flex-direction: column;
   justify-content: space-between;
   transform: rotateY(180deg);
+  position: relative;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 20%, black 80%), var(--card-image-url) center/cover no-repeat;
+}
+
+/* .project-card-back::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--card-image-url) center/cover no-repeat;
+  opacity: 0;
+  transform: scaleX(-1); 
+  backface-visibility: hidden;
+} */
+
+.project-card:hover .project-card-back::after {
+  opacity: 0.2; /* visible with low opacity on hover */
 }
 
 .project-card-back a {
