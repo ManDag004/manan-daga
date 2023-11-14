@@ -199,6 +199,7 @@ header {
   margin: 3vh 10vw;
   font-size: 2vh;
   text-align: justify;
+  hyphens: auto;
 }
 
 section {
@@ -310,7 +311,8 @@ section {
 
 .project-card-back p {
   text-align: justify;
-  font-size: 14px;
+  hyphens: auto;
+  font-size: 12px;
   padding: 20px;
 }
 
