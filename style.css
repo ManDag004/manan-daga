@@ -231,7 +231,8 @@ section {
 }
 
 .project-card:hover .project-card-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(0.1px);
+  border-radius: 5px;
 }
 
 .project-card-front,
