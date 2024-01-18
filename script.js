@@ -207,8 +207,8 @@ function createMenu() {
       <div id="menu-item-container">
         <a class="menu-item" href="index.html">About</a>
         <a class="menu-item" href="projects.html">Projects</a>
-        <a class="menu-item" href="resume.html">Resume</a>
-        <a class="menu-item" href="transcript.html">Transcript</a>
+        <a class="menu-item" href="assets/Manan-Daga-Resume.pdf" target="_blank">Resume</a>
+        <a class="menu-item" href="assets/UBCTranscript.pdf" target="_blank">Transcript</a>
       </div>
       <div id="menu-background"></div>
     </nav>
