@@ -10,20 +10,11 @@
   --color-num: 255;
 }
 
-/* hide scrollbar */
-
-
-body::-webkit-scrollbar {
-  display: none;
-}
 
 html, body {
   background-color: var(--background-color);
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 h1 {
