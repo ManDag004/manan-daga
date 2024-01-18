@@ -171,6 +171,8 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  // initialise as dark mode true
+  localStorage.setItem('darkMode', 'true');
   const body = document.querySelector('body');
   const header = createMenu();
   body.insertBefore(header, body.firstChild);
